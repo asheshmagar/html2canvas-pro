@@ -9,6 +9,7 @@ import { OLElementContainer } from '../dom/elements/ol-element-container';
 import { LIElementContainer } from '../dom/elements/li-element-container';
 import { createCounterText } from '../css/types/functions/counter';
 import { POSITION } from '../css/property-descriptors/position';
+import { clipPathToPaths } from '../css/property-descriptors/clip-path';
 
 export class StackingContext {
     element: ElementPaint;
@@ -59,6 +60,24 @@ export class ElementPaint {
             } else {
                 this.effects.push(new ClipEffect(borderBox, EffectTarget.BACKGROUND_BORDERS));
                 this.effects.push(new ClipEffect(paddingBox, EffectTarget.CONTENT));
+            }
+        }
+
+        // Apply clip-path if present
+        if (this.container.styles.clipPath !== null) {
+            const clipPaths = clipPathToPaths(
+                this.container.styles.clipPath,
+                this.container.bounds.width,
+                this.container.bounds.height
+            );
+            if (clipPaths && clipPaths.length > 0) {
+                // Transform paths relative to element position
+                const transformedPaths = clipPaths.map((path) =>
+                    path.add(this.container.bounds.left, this.container.bounds.top)
+                );
+                this.effects.push(
+                    new ClipEffect(transformedPaths, EffectTarget.BACKGROUND_BORDERS | EffectTarget.CONTENT)
+                );
             }
         }
     }
