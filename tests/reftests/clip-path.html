@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Clip-path CSS property tests</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script type="text/javascript" src="../test.js"></script>
+        <style>
+            body {
+                font-family: Arial;
+                margin: 20px;
+                background: #f0f0f0;
+            }
+            .test-container {
+                margin: 20px 0;
+                padding: 10px;
+                background: white;
+            }
+            .test-box {
+                width: 200px;
+                height: 200px;
+                background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
+                border: 5px solid #000;
+                margin: 10px;
+                display: inline-block;
+            }
+            .text-content {
+                padding: 20px;
+                color: white;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Clip-path Tests</h1>
+
+        <div class="test-container">
+            <h2>polygon() - Triangle</h2>
+            <div class="test-box" style="clip-path: polygon(50% 0%, 0% 100%, 100% 100%)">
+                <div class="text-content">Triangle</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>polygon() - Star</h2>
+            <div
+                class="test-box"
+                style="
+                    clip-path: polygon(
+                        50% 0%,
+                        61% 35%,
+                        98% 35%,
+                        68% 57%,
+                        79% 91%,
+                        50% 70%,
+                        21% 91%,
+                        32% 57%,
+                        2% 35%,
+                        39% 35%
+                    );
+                "
+            >
+                <div class="text-content">Star</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>polygon() - Diamond</h2>
+            <div class="test-box" style="clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)">
+                <div class="text-content">Diamond</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>polygon() - Hexagon</h2>
+            <div class="test-box" style="clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)">
+                <div class="text-content">Hexagon</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>circle() - Default (centered)</h2>
+            <div class="test-box" style="clip-path: circle()">
+                <div class="text-content">Circle</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>circle() - 50% radius</h2>
+            <div class="test-box" style="clip-path: circle(50%)">
+                <div class="text-content">Circle 50%</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>circle() - 40px radius at center</h2>
+            <div class="test-box" style="clip-path: circle(40px at 50% 50%)">
+                <div class="text-content">Circle 40px</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>circle() - at top-left</h2>
+            <div class="test-box" style="clip-path: circle(60px at 0% 0%)">
+                <div class="text-content">Circle TL</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>circle() - closest-side</h2>
+            <div class="test-box" style="clip-path: circle(closest-side at 50% 50%)">
+                <div class="text-content">Closest Side</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>ellipse() - Default (centered)</h2>
+            <div class="test-box" style="clip-path: ellipse()">
+                <div class="text-content">Ellipse</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>ellipse() - 60% 40%</h2>
+            <div class="test-box" style="clip-path: ellipse(60% 40%)">
+                <div class="text-content">Ellipse 60/40</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>ellipse() - 80px 40px at center</h2>
+            <div class="test-box" style="clip-path: ellipse(80px 40px at 50% 50%)">
+                <div class="text-content">Ellipse 80/40</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>ellipse() - at bottom-right</h2>
+            <div class="test-box" style="clip-path: ellipse(60px 60px at 100% 100%)">
+                <div class="text-content">Ellipse BR</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>inset() - 20px all sides</h2>
+            <div class="test-box" style="clip-path: inset(20px)">
+                <div class="text-content">Inset 20px</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>inset() - 10px 20px 30px 40px</h2>
+            <div class="test-box" style="clip-path: inset(10px 20px 30px 40px)">
+                <div class="text-content">Inset 4 values</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>inset() - 20% with rounded corners</h2>
+            <div class="test-box" style="clip-path: inset(20% round 20px)">
+                <div class="text-content">Inset Round</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>inset() - 30px with large rounded corners</h2>
+            <div class="test-box" style="clip-path: inset(30px round 40px)">
+                <div class="text-content">Inset Large Round</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>clip-path: none (no clipping)</h2>
+            <div class="test-box" style="clip-path: none">
+                <div class="text-content">No Clip</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>Multiple elements with different clip-paths</h2>
+            <div class="test-box" style="clip-path: polygon(0% 0%, 100% 0%, 50% 100%); width: 150px; height: 150px">
+                <div class="text-content">Tri</div>
+            </div>
+            <div class="test-box" style="clip-path: circle(50%); width: 150px; height: 150px">
+                <div class="text-content">Circle</div>
+            </div>
+            <div class="test-box" style="clip-path: ellipse(50% 30%); width: 150px; height: 150px">
+                <div class="text-content">Ellipse</div>
+            </div>
+            <div class="test-box" style="clip-path: inset(25px round 15px); width: 150px; height: 150px">
+                <div class="text-content">Inset</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>clip-path with positioned elements</h2>
+            <div class="test-box" style="clip-path: circle(40px at 50% 50%); position: relative; top: 50px; left: 50px">
+                <div class="text-content">Positioned</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>clip-path with absolute positioning</h2>
+            <div
+                class="test-box"
+                style="
+                    clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 100%);
+                    position: absolute;
+                    top: 600px;
+                    left: 300px;
+                "
+            >
+                <div class="text-content">Absolute</div>
+            </div>
+        </div>
+
+        <!-- SVG clipPath definitions -->
+        <svg width="0" height="0" style="position: absolute">
+            <defs>
+                <!-- Circle clipPath -->
+                <clipPath id="svgCircle" clipPathUnits="objectBoundingBox">
+                    <circle cx="0.5" cy="0.5" r="0.5" />
+                </clipPath>
+
+                <!-- Ellipse clipPath -->
+                <clipPath id="svgEllipse" clipPathUnits="objectBoundingBox">
+                    <ellipse cx="0.5" cy="0.5" rx="0.4" ry="0.3" />
+                </clipPath>
+
+                <!-- Rectangle clipPath -->
+                <clipPath id="svgRect" clipPathUnits="objectBoundingBox">
+                    <rect x="0.1" y="0.1" width="0.8" height="0.8" />
+                </clipPath>
+
+                <!-- Rounded rectangle clipPath -->
+                <clipPath id="svgRoundedRect" clipPathUnits="objectBoundingBox">
+                    <rect x="0.1" y="0.1" width="0.8" height="0.8" rx="0.1" ry="0.1" />
+                </clipPath>
+
+                <!-- Triangle polygon clipPath -->
+                <clipPath id="svgTriangle" clipPathUnits="objectBoundingBox">
+                    <polygon points="0.5,0 1,1 0,1" />
+                </clipPath>
+
+                <!-- Star polygon clipPath -->
+                <clipPath id="svgStar" clipPathUnits="objectBoundingBox">
+                    <polygon
+                        points="0.5,0 0.61,0.35 0.98,0.35 0.68,0.57 0.79,0.91 0.5,0.7 0.21,0.91 0.32,0.57 0.02,0.35 0.39,0.35"
+                    />
+                </clipPath>
+
+                <!-- Hexagon polygon clipPath -->
+                <clipPath id="svgHexagon" clipPathUnits="objectBoundingBox">
+                    <polygon points="0.3,0 0.7,0 1,0.5 0.7,1 0.3,1 0,0.5" />
+                </clipPath>
+
+                <!-- Diamond polygon clipPath -->
+                <clipPath id="svgDiamond" clipPathUnits="objectBoundingBox">
+                    <polygon points="0.5,0 1,0.5 0.5,1 0,0.5" />
+                </clipPath>
+
+                <!-- Path clipPath - heart shape -->
+                <clipPath id="svgHeart" clipPathUnits="objectBoundingBox">
+                    <path
+                        d="M 0.5,0.3 C 0.5,0.2 0.4,0.1 0.3,0.1 C 0.15,0.1 0.05,0.2 0.05,0.3 C 0.05,0.4 0.1,0.5 0.2,0.6 L 0.5,0.9 L 0.8,0.6 C 0.9,0.5 0.95,0.4 0.95,0.3 C 0.95,0.2 0.85,0.1 0.7,0.1 C 0.6,0.1 0.5,0.2 0.5,0.3 Z"
+                    />
+                </clipPath>
+
+                <!-- Path clipPath - arrow -->
+                <clipPath id="svgArrow" clipPathUnits="objectBoundingBox">
+                    <path d="M 0,0.4 L 0.6,0.4 L 0.6,0.1 L 1,0.5 L 0.6,0.9 L 0.6,0.6 L 0,0.6 Z" />
+                </clipPath>
+
+                <!-- Complex path clipPath -->
+                <clipPath id="svgComplex" clipPathUnits="objectBoundingBox">
+                    <path d="M 0.1,0.1 L 0.9,0.1 L 0.9,0.4 L 0.6,0.4 L 0.5,0.5 L 0.4,0.4 L 0.1,0.4 Z" />
+                </clipPath>
+
+                <!-- Circle clipPath with userSpaceOnUse (pixel coordinates) -->
+                <clipPath id="svgCirclePixels" clipPathUnits="userSpaceOnUse">
+                    <circle cx="100" cy="100" r="80" />
+                </clipPath>
+
+                <!-- Multiple shapes in one clipPath -->
+                <clipPath id="svgMultiple" clipPathUnits="objectBoundingBox">
+                    <circle cx="0.25" cy="0.5" r="0.2" />
+                    <circle cx="0.75" cy="0.5" r="0.2" />
+                </clipPath>
+            </defs>
+        </svg>
+
+        <div class="test-container">
+            <h2>url() - SVG Circle (objectBoundingBox)</h2>
+            <div class="test-box" style="clip-path: url(#svgCircle)">
+                <div class="text-content">SVG Circle</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>url() - SVG Ellipse</h2>
+            <div class="test-box" style="clip-path: url(#svgEllipse)">
+                <div class="text-content">SVG Ellipse</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>url() - SVG Rectangle</h2>
+            <div class="test-box" style="clip-path: url(#svgRect)">
+                <div class="text-content">SVG Rect</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>url() - SVG Rounded Rectangle</h2>
+            <div class="test-box" style="clip-path: url(#svgRoundedRect)">
+                <div class="text-content">SVG Rounded</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>url() - SVG Triangle</h2>
+            <div class="test-box" style="clip-path: url(#svgTriangle)">
+                <div class="text-content">SVG Triangle</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>url() - SVG Star</h2>
+            <div class="test-box" style="clip-path: url(#svgStar)">
+                <div class="text-content">SVG Star</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>url() - SVG Hexagon</h2>
+            <div class="test-box" style="clip-path: url(#svgHexagon)">
+                <div class="text-content">SVG Hexagon</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>url() - SVG Diamond</h2>
+            <div class="test-box" style="clip-path: url(#svgDiamond)">
+                <div class="text-content">SVG Diamond</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>url() - SVG Heart Path</h2>
+            <div class="test-box" style="clip-path: url(#svgHeart)">
+                <div class="text-content">SVG Heart</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>url() - SVG Arrow Path</h2>
+            <div class="test-box" style="clip-path: url(#svgArrow)">
+                <div class="text-content">SVG Arrow</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>url() - SVG Complex Path</h2>
+            <div class="test-box" style="clip-path: url(#svgComplex)">
+                <div class="text-content">SVG Complex</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>url() - SVG Circle (userSpaceOnUse - pixels)</h2>
+            <div class="test-box" style="clip-path: url(#svgCirclePixels)">
+                <div class="text-content">SVG Circle Px</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>url() - SVG Multiple Shapes</h2>
+            <div class="test-box" style="clip-path: url(#svgMultiple)">
+                <div class="text-content">SVG Multiple</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>url() - Multiple elements with same clipPath</h2>
+            <div class="test-box" style="clip-path: url(#svgCircle); width: 150px; height: 150px">
+                <div class="text-content">Circle 1</div>
+            </div>
+            <div class="test-box" style="clip-path: url(#svgCircle); width: 150px; height: 150px">
+                <div class="text-content">Circle 2</div>
+            </div>
+            <div class="test-box" style="clip-path: url(#svgTriangle); width: 150px; height: 150px">
+                <div class="text-content">Triangle</div>
+            </div>
+            <div class="test-box" style="clip-path: url(#svgStar); width: 150px; height: 150px">
+                <div class="text-content">Star</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>url() - SVG clipPath with positioned element</h2>
+            <div class="test-box" style="clip-path: url(#svgCircle); position: relative; top: 50px; left: 50px">
+                <div class="text-content">Positioned</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>url() - SVG clipPath with absolute positioning</h2>
+            <div class="test-box" style="clip-path: url(#svgHeart); position: absolute; top: 1200px; left: 300px">
+                <div class="text-content">Absolute SVG</div>
+            </div>
+        </div>
+
+        <div class="test-container">
+            <h2>url() - Different sizes with same clipPath</h2>
+            <div class="test-box" style="clip-path: url(#svgCircle); width: 100px; height: 100px">
+                <div class="text-content">Small</div>
+            </div>
+            <div class="test-box" style="clip-path: url(#svgCircle); width: 200px; height: 200px">
+                <div class="text-content">Medium</div>
+            </div>
+            <div class="test-box" style="clip-path: url(#svgCircle); width: 300px; height: 300px">
+                <div class="text-content">Large</div>
+            </div>
+        </div>
+    </body>
+</html>
